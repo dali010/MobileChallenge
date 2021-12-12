@@ -2,11 +2,13 @@ package dali.hmida.mobilechallenge
 
 import android.media.Image
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import dali.hmida.mobilechallenge.adapters.PictureAdapter
@@ -36,7 +38,17 @@ class HomeFragment : Fragment() {
         viewModel.picturesList.observe(viewLifecycleOwner,{pictures ->
             picturesAdapter = PictureAdapter(this.requireContext(),pictures.toCollection(ArrayList<Picture>()))
             binding.rvPictures.adapter = picturesAdapter
+
+            // Picture Details
+            picturesAdapter.setOnClickListener(object : PictureAdapter.OnClickListener{
+                override fun onClick(position: Int, model: Picture) {
+                    val action = HomeFragmentDirections.actionHomeFragmentToPictureDetailsFragment(model)
+                    Navigation.findNavController(binding.root)
+                        .navigate(action)
+                }
+            })
         })
+
 
         //Setting up stories
         binding.rvStories.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL,false)
@@ -44,6 +56,9 @@ class HomeFragment : Fragment() {
             storiesAdapter = StoryAdapter(this.requireContext(),pictures.toCollection(ArrayList<Picture>()))
             binding.rvStories.adapter = storiesAdapter
         })
+
+
+
 
         return binding.root
 
