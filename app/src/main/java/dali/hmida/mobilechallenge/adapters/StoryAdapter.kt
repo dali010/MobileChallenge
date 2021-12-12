@@ -1,21 +1,18 @@
 package dali.hmida.mobilechallenge.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dali.hmida.mobilechallenge.databinding.PictureItemBinding
+import dali.hmida.mobilechallenge.databinding.StoryItemBinding
 import dali.hmida.mobilechallenge.models.Picture
 
 
-
-open class PictureAdapter(
+open class StoryAdapter(
     private val context: Context,
     private var list: ArrayList<Picture>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -25,7 +22,7 @@ open class PictureAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         return MyViewHolder(
-            PictureItemBinding.inflate(
+            StoryItemBinding.inflate(
                 LayoutInflater.from(context),parent,
                 false)
         )
@@ -42,25 +39,11 @@ open class PictureAdapter(
         if (holder is MyViewHolder) {
 
             Glide.with(context)
-                .load(model.urls.regular)
+                .load(model.user.profile_image.large)
                 .centerCrop()
                 .placeholder(ColorDrawable(Color.parseColor(model.color)))
-                .into(holder.binding.picture)
+                .into(holder.binding.story)
 
-            holder.binding.tvUserName.text = model.user.username.toString()
-            holder.binding.tvCreationDate.text = model.created_at.toString()
-
-            holder.binding.picture.setOnClickListener{
-                if(onClickListener != null){
-                    onClickListener!!.onClick(position,model)
-                }
-            }
-
-            holder.binding.root.setOnClickListener{
-                if(onClickListener != null){
-                    onClickListener!!.onClick(position,model)
-                }
-            }
         }
     }
 
@@ -69,11 +52,12 @@ open class PictureAdapter(
         return list.size
     }
 
+
     interface OnClickListener{
         fun onClick(position: Int, model: Picture)
     }
 
-    private class MyViewHolder(binding: PictureItemBinding) : RecyclerView.ViewHolder(binding.root){
+    private class MyViewHolder(binding: StoryItemBinding) : RecyclerView.ViewHolder(binding.root){
         var binding = binding
     }
 }

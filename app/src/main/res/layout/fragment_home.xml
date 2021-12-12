@@ -11,17 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:textColor="@color/black"
         android:textColorHint="@color/search_color"
         android:drawableLeft="@drawable/ic_baseline_search_24"
         android:background="@drawable/search_bg"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="13dp"
         />
 
     <androidx.recyclerview.widget.RecyclerView

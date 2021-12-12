@@ -5,11 +5,13 @@
       <map>
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/drawable/picture_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/drawable/search_bg.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/drawable/story_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/fragment_home.xml" value="0.3111111111111111" />
+        <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/fragment_home.xml" value="0.19642857142857142" />
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/fragment_picture_details.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/fragment_story.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/picture_item.xml" value="0.2" />
+        <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/layout/story_item.xml" value="0.1852355072463768" />
         <entry key="..\:/Users/Dali/Desktop/MobileChallenge/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21614583333333334" />
       </map>
     </option>
