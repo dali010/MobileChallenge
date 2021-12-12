@@ -5,11 +5,8 @@ import android.app.Application
 import android.provider.SyncStateContract
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
 import dali.hmida.mobilechallenge.Constants
 import dali.hmida.mobilechallenge.models.Picture
 import dali.hmida.mobilechallenge.network.UnsplashService
@@ -18,14 +15,25 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.ArrayList
 
-class AppViewModel: ViewModel() {
-    var photoList: MutableLiveData<List<Picture>> = MutableLiveData()
+class AppViewModel(app :Application) : AndroidViewModel(app){
+    var picturesList: MutableLiveData<List<Picture>> = MutableLiveData()
 
 
-    fun getPictures(){
-//            if (Constants.isNetworkAvailable(app)) {
+    init {
+        if (Constants.isNetworkAvailable(app)) {
+            getPictures()
+        }else {
+            Log.e("error","error")
+        }
+    }
+
+
+
+
+
+    private fun getPictures(){
+
 
                 val retrofit : Retrofit = Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
@@ -48,7 +56,7 @@ class AppViewModel: ViewModel() {
                     ) {
                         if (response.isSuccessful){
                             Log.i("test","test")
-                             photoList.postValue(response.body())
+                            picturesList.postValue(response.body())
                             Log.i("Response Result" , "${response.body()}")
                         }else{
                             val rc = response.code()
@@ -70,10 +78,9 @@ class AppViewModel: ViewModel() {
 
                 })
 
-//            } else {
-//                Log.e("error","error")
-//            }
+
         }
+
     }
 
 

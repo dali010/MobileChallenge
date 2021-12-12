@@ -43,8 +43,12 @@ open class PictureAdapter(
 
             Glide.with(context)
                 .load(model.urls.regular)
+                .centerCrop()
                 .placeholder(ColorDrawable(Color.parseColor(model.color)))
                 .into(holder.binding.picture)
+
+            holder.binding.tvUserName.text = model.user.username.toString()
+            holder.binding.tvCreationDate.text = model.created_at.toString()
 
             holder.binding.picture.setOnClickListener{
                 if(onClickListener != null){
