@@ -16,6 +16,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textColorHint="@color/search_color"
         android:drawableLeft="@drawable/ic_baseline_search_24"
         android:background="@drawable/search_bg"
         android:layout_marginTop="20dp"
