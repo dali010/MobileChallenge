@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dali.hmida.mobilechallenge.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_storyFragment"
+            app:destination="@id/storyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_pictureDetailsFragment"
+            app:destination="@id/pictureDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storyFragment"
+        android:name="dali.hmida.mobilechallenge.StoryFragment"
+        android:label="fragment_story"
+        tools:layout="@layout/fragment_story" >
+        <action
+            android:id="@+id/action_storyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pictureDetailsFragment"
+        android:name="dali.hmida.mobilechallenge.PictureDetailsFragment"
+        android:label="fragment_picture_details"
+        tools:layout="@layout/fragment_picture_details" >
+        <action
+            android:id="@+id/action_pictureDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
