@@ -33,6 +33,8 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater,container,false)
 
+        viewModel.getPictures()
+
         //Setting up pictures
         binding.rvPictures.layoutManager = GridLayoutManager(this.context,2)
         viewModel.picturesList.observe(viewLifecycleOwner,{pictures ->
